@@ -17,7 +17,7 @@
 -- Prerequisite: For Cloud Run or Cloud Function V2 HTTP services
 -- Use case: analyze traffic distribution and patterns
 -- Usage:
--- List the 10 URLs that Firefox users accessed most frequently, in descending order.
+-- List the 10 URLs that Chrome users accessed most frequently, in descending order.
 
 SELECT http_request.request_url as request_url,
     http_request.user_agent as user_agent,

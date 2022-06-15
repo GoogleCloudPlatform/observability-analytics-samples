@@ -38,7 +38,7 @@ FROM `logs_next21logs_day2ops_log_us_1`
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
   AND proto_payload IS NOT NULL
   AND log_name LIKE "%cloudaudit.googleapis.com%"
-  AND proto_payload.audit_log.authentication_info.principal_email = "971828084600-compute@developer.gserviceaccount.com"
+  AND proto_payload.audit_log.authentication_info.principal_email = "xxxxxxx@developer.gserviceaccount.com"
 GROUP BY 1,
   2
 ORDER BY 3 DESC

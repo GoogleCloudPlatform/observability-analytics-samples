@@ -1,0 +1,11 @@
+terraform/agents/cloud-opts/.terraform
+terraform/agents/cloud-opts/.terraform.*
+terraform/agents/cloud-opts/terraform.tfstate
+terraform/agents/cloud-opts/terraform.tfstate.backup
+terraform/agents/bindplane/.terraform
+terraform/agents/bindplane/.terraform.*
+terraform/agents/bindplane/terraform.tfstate
+terraform/agents/bindplane/terraform.tfstate.backup
+
+.DS_Store
+**/.DS_Store
