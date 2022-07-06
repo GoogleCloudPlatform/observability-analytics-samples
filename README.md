@@ -32,7 +32,7 @@ This repository contains samples that may be used with the Cloud Logging Analyti
 | 3.3| [Top instances that having error status in the last 24 hours](./samples/serverless/cloud_functions_v1/status_code_not_200.sql)|Cloud Run logs| 
 | 3.4| [Average amount of data that is passing through the Cloud Run services](./samples/serverless/cloud_run/avg_data_pass_through.sql)| Cloud Run logs|
 | 3.5| [Client IP addresses that accessed the Cloud Run service](./samples/serverless/cloud_run/client_ip_access_times.sql)|Cloud Run logs|
-| 3.6| [List clients by the amount of data they received from the Cloud Run services](./samples/serverless/cloud_run/client_receive_data.sql)|
+| 3.6| [List clients by the amount of data they received from the Cloud Run services](./samples/serverless/cloud_run/client_receive_data.sql)| Cloud Run logs|
 | 3.7| [List clients by the number of times they visited a specified URL](./samples/serverless/cloud_run/client_visit_url_times.sql)| Cloud Run logs|
 | 3.8| [Each time the Cloud Run service latency was more than 2 seconds](./samples/serverless/cloud_run/high_latency_responses.sql)|Cloud Run logs|
 | 3.9| [Count HTTP GET requests received by the LB grouped by the client IP address](./samples/serverless/cloud_run/requst_method_by_client.sql)|Cloud Run logs|
