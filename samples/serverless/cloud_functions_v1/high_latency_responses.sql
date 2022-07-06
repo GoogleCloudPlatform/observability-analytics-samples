@@ -18,7 +18,7 @@
 -- Use case: troubleshoot latency in a specified time frame
 -- Usage:
 -- List top 10 Cloud Functions instances that used most of time
--- in a specified date range 
+-- in a specified date range.
 
 SELECT JSON_VALUE(resource.labels.function_name) as name,
     timestamp as exec_time,

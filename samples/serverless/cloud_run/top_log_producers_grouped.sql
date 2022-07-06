@@ -15,7 +15,7 @@
 
 -- Use case: log analysis and troubleshooting
 -- Usage:
--- Get the number of logs for the top producers of Cloud Run logs,
+-- Get the number of logs for the top grouped producers of Cloud Run logs,
 -- in the last 24 hours, LIMITED to error logs.
 
 SELECT JSON_VALUE(resource.labels.service_name) as service,

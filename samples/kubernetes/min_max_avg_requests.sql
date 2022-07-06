@@ -17,7 +17,7 @@
 --   https://github.com/GoogleCloudPlatform/microservices-demo
 -- Use case: log analysis and troubleshooting
 -- Usage:
--- Get min, max, avg # of requests grouped by by hour for the frontedn service.
+-- Get min, max, avg # of requests grouped by by hour for the frontend service.
 
 SELECT hour,
     MIN(took_ms) as min,

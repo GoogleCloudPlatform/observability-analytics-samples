@@ -17,7 +17,7 @@
 --   https://cloud.google.com/vpc/docs/using-flow-logs#enabling-vpc-flow-logs
 -- Use case: network analysis and troubleshooting
 -- Usage:
--- Get the total bytes sent between 2 Kubernetes pods
+-- Get the total bytes sent between 2 Kubernetes pods.
 
 SELECT JSON_VALUE(json_payload.src_gke_details.pod.pod_name) AS src_pod,
     JSON_VALUE(json_payload.dest_gke_details.pod.pod_name) AS dest_pod,

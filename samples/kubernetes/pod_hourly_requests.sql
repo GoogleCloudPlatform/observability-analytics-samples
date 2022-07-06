@@ -17,7 +17,7 @@
 --   https://github.com/GoogleCloudPlatform/microservices-demo
 -- Use case: analysis and troubleshooting
 -- Usage:
--- Last 50 Kubernetes log entries with completed requests for the service 'frontend'
+-- Last 50 Kubernetes log entries with completed requests for the service 'frontend'.
 
 SELECT timestamp,
     log_name,

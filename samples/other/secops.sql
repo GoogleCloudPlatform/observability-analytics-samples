@@ -12,8 +12,10 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
--- SecOps – all audit logs for the past hour
--- Let’s look at the security related logs for the application and infrastructure. Note the proto_payload field is displayed as as JSON data type.
+ 
+-- Use case: SecOps 
+-- Usage:
+-- List all audit logs for the past hour.
 SELECT timestamp,
   log_name,
   proto_payload,
@@ -21,20 +23,21 @@ SELECT timestamp,
   resource.type,
   resource,
   labels
-FROM `logs_next21logs_day2ops_log_us_1`
+FROM `[MY_DATASET_ID]._AllLogs`
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
   AND proto_payload IS NOT NULL
   AND log_name LIKE "%cloudaudit.googleapis.com%"
 ORDER BY timestamp ASC
-LIMIT 50
+LIMIT 50;
 
--- SecOps –  audit logs by the principal field and IP address 
-  -- It’s more interesting to look at aggregations. 
-  -- So, let’s look at audit logs by the principal field and IP address which is the user that took the action in the audit log and from where.
+-- Use case: SecOps 
+-- Usage:
+-- Get audit logs by the principal field and IP address 
+-- which show the user that took the action in the audit log and from where.
 SELECT proto_payload.audit_log.authentication_info.principal_email,
   proto_payload.audit_log.request_metadata.caller_ip,
   count(*) as cnt
-FROM `logs_next21logs_day2ops_log_us_1`
+FROM `[MY_DATASET_ID]._AllLogs`
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
   AND proto_payload IS NOT NULL
   AND log_name LIKE "%cloudaudit.googleapis.com%"
@@ -42,9 +45,11 @@ WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
 GROUP BY 1,
   2
 ORDER BY 3 DESC
-LIMIT 50
+LIMIT 50;
 
--- SecOps – find all the audit logs associated with a specific IP address across any field in the table. 
+-- Use case: SecOps 
+-- Usage: 
+-- Find all the audit logs associated with a specific IP address across any field in the table. 
 SELECT timestamp,
   log_name,
   proto_payload,
@@ -52,19 +57,16 @@ SELECT timestamp,
   resource.type,
   resource,
   labels
-FROM `logs_next21logs_day2ops_log_us_1` as t
+FROM `[MY_DATASET_ID]._AllLogs` as t
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
   AND proto_payload IS NOT NULL
   AND log_name LIKE "%cloudaudit.googleapis.com%"
   AND SEARCH(t, "34.122.94.173")
 ORDER BY timestamp ASC
-LIMIT 50
-
--- Now Click the “Run in BigQuery link”. Now in the BigQuery UI, we can combine that IP address data with other data. As an example, let’s combine the data with a public dataset and use the IP functions in BigQuery to produce a list of countries and the number of logs for each.
-  WITH source_of_ip_addresses AS (
+LIMIT 50 WITH source_of_ip_addresses AS (
     SELECT proto_payload.audit_log.request_metadata.caller_ip as ip,
       COUNT(*) c
-    FROM `logs_next21logs_day2ops_log_us_1` t
+    FROM `[MY_DATASET_ID]._AllLogs` t
     WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 30 DAY)
       AND proto_payload IS NOT NULL
       AND log_name LIKE "%cloudaudit.googleapis.com%"
@@ -86,33 +88,32 @@ FROM (
       JOIN `fh-bigquery.geocode.201806_geolite2_city_ipv4_locs` USING (network_bin, mask)
   )
 GROUP BY 1
-ORDER BY 2 DESC
+ORDER BY 2 DESC;
 
--- SecOps – unusual activity by user
-  Now let ’ s
-go back to that list of source IP addresses,
-  and surface any unusual activity by a user
-from any country in the last week.This time let ’ s pull details of what was done (methodName) to what resource (resourceName) over an extended time,
-  say last 2 months:
+-- Use case: SecOps
+-- Usage: Get unusual activity by user
+-- and get details of what was done (methodName) to what resource (resourceName) over an extended time,
+say last 2 months:
 SELECT timestamp,
   proto_payload.audit_log.authentication_info.principal_email,
   proto_payload.audit_log.method_name,
   proto_payload.audit_log.service_name,
   proto_payload.audit_log.resource_name,
   proto_payload.audit_log.request_metadata.caller_ip,
-  FROM `logs_next21logs_day2ops_log_us_1`
+  FROM `[MY_DATASET_ID]._AllLogs`
 WHERE timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 60 DAY)
   AND proto_payload.audit_log.request_metadata.caller_ip IS NOT NULL
 ORDER BY timestamp DESC
-LIMIT 1000
+LIMIT 1000;
 
-/* Now Click the “Run in BigQuery link”.
-   
-   Using that list of cloud provisioning admin activities done over the last 2 months, we:
-   (1) geolocate the IP address
-   (2) group by activity tuples (action, actor, country) and identify the earliest instance this activity occurred
-   (3) mark any activity tuple as new or unusual if the first instance of it was in the last week.
-   */
+-- Use case: SecOps 
+-- Usage: 
+/* 
+ Using that list of cloud provisioning admin activities done over the last 2 months, we:
+ (1) geolocate the IP address
+ (2) group by activity tuples (action, actor, country) and identify the earliest instance this activity occurred
+ (3) mark any activity tuple as new or unusual if the first instance of it was in the last week.
+ */
 SELECT IF(
     MIN(timestamp) >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY),
     1,

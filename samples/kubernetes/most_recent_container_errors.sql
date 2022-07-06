@@ -15,7 +15,7 @@
 
 -- Use case: analysis and troubleshooting
 -- Usage:
--- List 50 most recent container errors from Kubernetes
+-- List 50 most recent container errors from Kubernetes.
 
 SELECT TIMESTAMP,
   JSON_VALUE(resource.labels.container_name) AS container,

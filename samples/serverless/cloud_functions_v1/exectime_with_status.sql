@@ -14,7 +14,8 @@
  */
 -- Prerequisite: For Cloud Functions V1
 -- Use case: analyze function running status
--- List recent functions run time and status code
+-- Usage:
+-- List recent functions run time and status code.
 
 WITH Recs AS (
     SELECT JSON_VALUE(resource.labels.function_name) as name,

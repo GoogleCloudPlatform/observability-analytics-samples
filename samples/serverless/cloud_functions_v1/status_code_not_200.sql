@@ -17,7 +17,7 @@
 -- Prerequisite: For Cloud Run or Cloud Function V2 HTTP services
 -- Use case: troubleshoot HTTP errors
 -- Usage:
--- List top 50 instances that having error status in the last 24 hours
+-- List top 50 instances that having error status in the last 24 hours.
 
 
 WITH Recs AS (

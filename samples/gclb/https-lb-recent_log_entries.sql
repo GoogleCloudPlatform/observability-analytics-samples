@@ -19,7 +19,6 @@
 -- Use case: analysis and troubleshooting
 -- Usage:
 -- View the first 100 access log entries in chronological order.
--- Use case: analysis and troubleshooting
 
 SELECT *
 FROM `[MY_DATASET_ID]._AllLogs`

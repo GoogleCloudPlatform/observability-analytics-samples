@@ -16,6 +16,7 @@
 
 -- Prerequisite: For Cloud Run or Cloud Function V2 HTTP services
 -- Use case: analyze traffic distribution and patterns
+-- Usage:
 -- List clients in descending order, by the amount of data (in megabytes)
 -- that each client received in their responses from the Cloud Run services.
 

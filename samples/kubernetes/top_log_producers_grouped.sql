@@ -15,7 +15,7 @@
 
 -- Use case: log analysis and troubleshooting
 -- Usage:
--- Get the number of logs for the top producers of container logs
+-- Get the number of logs for the top producers of container logs.
 
 SELECT JSON_VALUE(resource.labels.container_name) as container,
     count(*) as container_cnt
