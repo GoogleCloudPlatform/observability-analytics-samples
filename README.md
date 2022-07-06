@@ -3,7 +3,6 @@
 
 This repository contains samples that may be used with the Cloud Logging Analytics feature.
 
-## Security Analytics Use Cases
 | # | Query Sample | Log Source |
 |---|---|---|
 | <div id="login-access-patterns">1</div> | **Google Cloud Load Balancing**
