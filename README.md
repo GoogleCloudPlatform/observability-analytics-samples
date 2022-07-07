@@ -19,12 +19,15 @@ This repository contains samples that may be used with the Cloud Logging Analyti
 | <div id="iam-keys-secrets-changes">2</div> | **Kubernetes**
 | 2.1| [Get min, max, avg # of requests grouped for a service](./samples/kubernetes/min_max_avg_requests.sql)| Kubernetes Logs |
 | 2.2| [List most recent container errors from Kubernetes](./samples/kubernetes/most_recent_container_errors.sql)|Kubernetes Logs |
-| 2.3| [Get the total bytes sent between 2 Kubernetes pods](./samples/kubernetes/network_bytes_between_pods.sql)| VPC Flow Logs	|
-| 2.4| [Last Kubernetes log entries with completed requests for a service](./samples/kubernetes/pod_hourly_requests.sql)|Kubernetes Logs |
-| 2.5| [Get the number of logs for the top producers of container error logs](./samples/kubernetes/top_error_log_producers.sql)|Kubernetes Logs |
-| 2.6| [Get the number of logs for the top grouped producers of container logs](./samples/kubernetes/top_log_producers_cluster_loc_name.sql)|Kubernetes Logs |
-| 2.7| [Get the number of logs for the top producers of container logs](./samples/kubernetes/top_log_producers_grouped.sql)|Kubernetes Logs |
-| 2.8| [Get the number of logs for the top producers of container logs by namespace](./samples/kubernetes/top_log_producers_namespace.sql)|Kubernetes Logs |
+| 2.3| [Last Kubernetes log entries with completed requests for a service](./samples/kubernetes/pod_hourly_requests.sql)|Kubernetes Logs |
+| 2.4| [Get the number of logs for the top producers of container error logs](./samples/kubernetes/top_error_log_producers.sql)|Kubernetes Logs |
+| 2.5| [Get the number of logs for the top grouped producers of container logs](./samples/kubernetes/top_log_producers_cluster_loc_name.sql)|Kubernetes Logs |
+| 2.6| [Get the number of logs for the top producers of container logs](./samples/kubernetes/top_log_producers_grouped.sql)|Kubernetes Logs |
+| 2.7| [Get the number of logs for the top producers of container logs by namespace](./samples/kubernetes/top_log_producers_namespace.sql)|Kubernetes Logs |
+| 2.8| [Get the total bytes sent between 2 Kubernetes pods](./samples/kubernetes/network_bytes_between_pods.sql)| VPC Flow Logs	|
+| 2.9| [Get the total bytes and packets to/from Kubernetes clusters](./samples/kubernetes/network_bytes_between_clusters.sql)| VPC Flow Logs	|
+| 2.10| [Top destination IPs by total bytes and packets to/from Kubernetes clusters.](./samples/kubernetes/network_top_ips_for_clusters.sql)| VPC Flow Logs	|
+| 2.11| [Get the total bytes and packets by protocol over the past day](./samples/kubernetes/network_traffic_by_protocol.sql)| VPC Flow Logs	|
 | <div id="cloud-provisioning-activity">3</div> | **Serverless**
 | 3.1| [Recent functions run time and status code](./samples/serverless/cloud_functions_v1/exectime_with_status.sql)| Cloud Functions V1 logs|
 | 3.2| [Top Cloud Functions instances that used most of time in a specified date range](./samples/serverless/cloud_functions_v1/high_latency_responses.sql)|Cloud Functions V1 logs|
