@@ -20,9 +20,10 @@
 -- Usage:
 -- List the average amount of data (in kilobytes) that is passing through
 -- the Load Balancer in request/response pairs.
+-- The table name referenced in the FROM has the format project_ID.region.bucket_ID.view_ID
 
 SELECT (
         avg(http_request.request_size) / 1000.0 + avg(http_request.response_size) / 1000.0
     ) as pass_through_kilobytes
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT_ID].global._Default._Default`
 WHERE resource.type = "http_load_balancer"

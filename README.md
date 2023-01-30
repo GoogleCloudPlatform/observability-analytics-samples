@@ -43,6 +43,15 @@ This repository contains samples that may be used with the Cloud Logging Analyti
 | 3.11| [Get the number of logs for the top grouped producers of Cloud Run error logs](./samples/serverless/cloud_run/top_log_producers_grouped.sql)| Cloud Run logs|
 | 3.12| [Top requests with the longest latencies](./samples/serverless/cloud_run/top_long_latency.sql)|Cloud Run logs|
 | 3.13| [Top URLs that Chrome users accessed most frequently, in descending order](./samples/serverless/cloud_run/user_agent_most_visited_urls.sql)|Cloud Run logs|
+| <div id="cloud-provisioning-activity">4</div> | **Networking**
+| 4.1| [External traffic by IP](./samples/vpc_flow_logs/external_traffic_by_ip.sql)|VPC Flow logs|
+| 4.2| [Internet egress by country](./samples/vpc_flow_logs/internet_egress_by_country.sql)|VPC Flow logs|
+| 4.3| [Internet egress by ISP](./samples/vpc_flow_logs/internet_egress_by_isp.sql)|VPC Flow logs|
+| 4.4| [Internet egress by geo](./samples/vpc_flow_logs/internet_traffic_by_geo.sql)|VPC Flow logs|
+| 4.5| [Top Talkers](./samples/vpc_flow_logs/top_talkers.sql)|VPC Flow logs|
+| 4.6| [Total egress by zone](./samples/vpc_flow_logs/total_egress_between_zones.sql)|VPC Flow logs|
+| 4.6| [VM to VM traffic](./samples/vpc_flow_logs/vm_to_vm_traffic.sql)|VPC Flow logs|
+
 
 ## Security analytics
 
