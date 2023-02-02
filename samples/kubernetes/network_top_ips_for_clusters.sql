@@ -18,7 +18,7 @@
 -- Usage:
 -- List the top 10 destination IP by total bytes and packets to/from Kubernetes clusters.
 
-SELECT JSON_VALUE(json_payload.CONNECTION.dest_ip) AS dest_ip,
+SELECT JSON_VALUE(json_payload.connection.dest_ip) AS dest_ip,
     SUM(
         CAST(JSON_VALUE(json_Payload.packets_sent) AS INT64)
     ) AS packets_sent,
