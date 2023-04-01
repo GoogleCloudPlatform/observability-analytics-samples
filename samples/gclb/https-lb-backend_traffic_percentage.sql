@@ -30,7 +30,7 @@ SELECT http_request.server_ip as target_ip,
                 AND http_request.server_ip != ''
         )
     ) as backend_traffic_percentage
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "http_load_balancer"
 GROUP BY target_ip
 ORDER BY backend_traffic_percentage DESC
