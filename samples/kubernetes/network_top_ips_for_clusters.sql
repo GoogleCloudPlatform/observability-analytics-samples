@@ -25,7 +25,7 @@ SELECT JSON_VALUE(json_payload.connection.dest_ip) AS dest_ip,
     SUM(
         CAST(JSON_VALUE(json_Payload.bytes_sent) AS INT64)
     ) AS bytes_sent
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
     AND resource.type = "gce_subnetwork"
     AND log_name LIKE "%compute.googleapis.com%2Fvpc_flows%"
