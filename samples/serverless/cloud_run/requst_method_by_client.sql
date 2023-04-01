@@ -23,7 +23,7 @@
 SELECT COUNT(http_request.request_method) AS count,
     http_request.request_method,
     http_request.remote_ip
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "cloud_run_revision"
     AND http_request.request_method = 'GET'
 GROUP BY http_request.request_method,
