@@ -20,7 +20,7 @@
 SELECT TIMESTAMP,
   JSON_VALUE(resource.labels.container_name) AS container,
   json_payload,
-  FROM `[MY_DATASET_ID]._AllLogs`
+  FROM `[MY_PROJECT].global._Default._Default`
 WHERE severity = "ERROR"
 ORDER BY 1 DESC
 LIMIT 50
