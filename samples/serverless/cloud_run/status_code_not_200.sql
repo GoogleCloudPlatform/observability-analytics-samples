@@ -20,7 +20,7 @@
 -- List top 50 requests that having error status
 
 SELECT *
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "cloud_run_revision"
     AND http_request.status != 200
 LIMIT 50
