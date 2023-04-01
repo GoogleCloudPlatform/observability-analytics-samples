@@ -21,7 +21,7 @@ WITH Recs AS (
     SELECT JSON_VALUE(resource.labels.function_name) as name,
         timestamp as exec_time,
         SPLIT(text_payload, ' ') AS str_array
-    FROM `[MY_DATASET_ID]._AllLogs`
+    FROM `[MY_PROJECT].global._Default._Default`
     WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY)
         AND log_name like '%cloud_functions'
         AND text_payload like '%took%'
