@@ -35,7 +35,7 @@ SELECT
    CAST(JSON_VALUE(json_payload.connection.dest_port) as INT64)) as port,
  SUM(CAST(JSON_VALUE(json_payload.bytes_sent) as INT64)) as total_bytes_sent
 FROM
- `[MY_PROJECT].global._Default._AllLogs`
+ `[MY_PROJECT].global._Default._Default`
 WHERE
  log_name LIKE "%compute.googleapis.com%2Fvpc_flows%"
  AND timestamp(replace(substr(JSON_VALUE(json_payload.start_time),0,19),"T"," ")) > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
