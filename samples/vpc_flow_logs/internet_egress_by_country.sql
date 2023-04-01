@@ -19,7 +19,7 @@ SELECT
  SUM(CAST(JSON_VALUE(json_payload.packets_sent) as INT64)) as total_packets_sent,
  AVG(CAST(JSON_VALUE(json_payload.rtt_msec) as INT64)) as avg_rtt_msec
 FROM
- `[MY_PROJECT].global._Default._AllLogs`
+ `[MY_PROJECT].global._Default._Default`
 WHERE
  log_name LIKE "%compute.googleapis.com%2Fvpc_flows%"
  AND timestamp(replace(substr(JSON_VALUE(json_payload.start_time),0,19),"T"," ")) > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
