@@ -22,7 +22,7 @@
 
 SELECT http_request.remote_ip as client_ip,
     sum(http_request.response_size / 1000000) as client_data_received_megabytes
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "cloud_run_revision"
     AND http_request.remote_ip is not null
 GROUP by client_ip
