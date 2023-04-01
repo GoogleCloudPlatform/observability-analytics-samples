@@ -28,6 +28,8 @@ This repository contains samples that may be used with the Cloud Logging Analyti
 | 2.9| [Get the total bytes and packets to/from Kubernetes clusters](./samples/kubernetes/network_bytes_between_clusters.sql)| VPC Flow Logs	|
 | 2.10| [Top destination IPs by total bytes and packets to/from Kubernetes clusters.](./samples/kubernetes/network_top_ips_for_clusters.sql)| VPC Flow Logs	|
 | 2.11| [Get the total bytes and packets by protocol over the past day](./samples/kubernetes/network_traffic_by_protocol.sql)| VPC Flow Logs	|
+| 2.12| [Get the count of logs by severity](./samples/kubernetes/k8s_cnt_by_severity)| Kubernetes Logs	|
+| 2.13| [Get the count of logs by k8s service and severity](./samples/kubernetes/k8s_count_by_service_by_severity)| Kubernetes Logs	|
 | <div id="cloud-provisioning-activity">3</div> | **Serverless**
 | 3.1| [Recent functions run time and status code](./samples/serverless/cloud_functions_v1/exectime_with_status.sql)| Cloud Functions V1 logs|
 | 3.2| [Top Cloud Functions instances that used most of time in a specified date range](./samples/serverless/cloud_functions_v1/high_latency_responses.sql)|Cloud Functions V1 logs|
