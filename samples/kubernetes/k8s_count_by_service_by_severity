@@ -22,7 +22,7 @@ SELECT
  COUNTIF(severity="WARNING") warning_cnt,
  COUNT(*) as total_cnt
 FROM
- `[MY_PROJECT].global._Default._AllLogs`
+ `[MY_PROJECT].global._Default._Default`
 WHERE
  timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 8 HOUR)
  AND resource.type="k8s_container"
