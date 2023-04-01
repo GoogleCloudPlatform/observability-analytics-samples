@@ -22,7 +22,7 @@ SELECT
  STDDEV(CAST(JSON_VALUE(json_payload.rtt_msec) as INT64)) as stddev_rtt_msec,
  COUNT(*) as log_count
 FROM
- `[MY_PROJECT].global._Default._AllLogs`
+ `[MY_PROJECT].global._Default._Default`
 WHERE
  log_name LIKE "%compute.googleapis.com%2Fvpc_flows%"
  AND timestamp(replace(substr(JSON_VALUE(json_payload.start_time),0,19),"T"," ")) > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
