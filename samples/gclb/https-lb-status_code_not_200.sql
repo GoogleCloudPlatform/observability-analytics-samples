@@ -21,7 +21,7 @@
 -- List top 50 requests that having error status
 
 SELECT *
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "http_load_balancer"
     and http_request.status != 200
 LIMIT 50
