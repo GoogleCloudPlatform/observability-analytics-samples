@@ -20,7 +20,7 @@
 
 SELECT JSON_VALUE(resource.labels.container_name) as container,
     count(*) as container_cnt
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY)
     AND resource.type = "k8s_container"
     AND severity = "ERROR"
