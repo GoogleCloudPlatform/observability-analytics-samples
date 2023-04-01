@@ -21,7 +21,7 @@
 -- View the first 100 access log entries in chronological order.
 
 SELECT *
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "http_load_balancer"
 ORDER BY timestamp ASC
 LIMIT 50
