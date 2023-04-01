@@ -24,7 +24,7 @@ SELECT http_request.latency.nanos / 1000000 as latence_in_ms,
     json_payload,
     resource,
     labels
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "cloud_run_revision"
     AND http_request IS NOT NULL
 ORDER BY http_request.latency.nanos DESC
