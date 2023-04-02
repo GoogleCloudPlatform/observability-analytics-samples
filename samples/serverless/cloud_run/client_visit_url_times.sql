@@ -24,7 +24,7 @@ SELECT JSON_VALUE(resource.labels.service_name) as name,
     http_request.remote_ip as client_ip,
     http_request.request_url as request_url,
     count(*) as count
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "cloud_run_revision"
 GROUP by 1,
     2,

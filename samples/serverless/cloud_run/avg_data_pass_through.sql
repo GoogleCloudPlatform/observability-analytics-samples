@@ -24,6 +24,6 @@ SELECT http_request.request_url,
     (
         avg(http_request.request_size) / 1000.0 + avg(http_request.response_size) / 1000.0
     ) as pass_through_kilobytes
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "cloud_run_revision"
 GROUP BY http_request.request_url;

@@ -25,7 +25,7 @@ SELECT JSON_VALUE(resource.labels.url_map_name) as name,
     http_request.remote_ip as client_ip,
     http_request.request_url as request_url,
     count(*) as count
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "http_load_balancer"
 GROUP by name,
     client_ip,

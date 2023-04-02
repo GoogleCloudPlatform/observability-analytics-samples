@@ -23,7 +23,7 @@
 
 SELECT distinct(http_request.remote_ip),
     count(*) as num
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "http_load_balancer"
 GROUP BY http_request.remote_ip
 LIMIT 50

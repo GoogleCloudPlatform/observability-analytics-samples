@@ -25,7 +25,7 @@ SELECT timestamp,
     json_payload,
     resource,
     labels
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
     AND json_payload IS NOT NULL
     AND json_payload.message IS NOT NULL

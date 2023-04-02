@@ -23,7 +23,7 @@
 SELECT http_request.request_url as request_url,
     http_request.user_agent as user_agent,
     count(*) as count
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "http_load_balancer"
     AND http_request.user_agent LIKE '%Firefox%'
 GROUP by request_url,

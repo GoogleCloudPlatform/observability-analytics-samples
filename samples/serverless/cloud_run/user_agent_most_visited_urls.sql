@@ -22,7 +22,7 @@
 SELECT http_request.request_url as request_url,
     http_request.user_agent as user_agent,
     count(*) as count
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "cloud_run_revision" 
     AND http_request.user_agent LIKE '%Chrome%'
 GROUP by request_url,

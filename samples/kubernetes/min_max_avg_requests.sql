@@ -28,7 +28,7 @@ FROM (
             CAST(
                 JSON_VALUE(json_payload, '$."http.resp.took_ms"') AS INT64
             ) as took_ms
-        FROM `[MY_DATASET_ID]._AllLogs`
+        FROM `[MY_PROJECT].global._Default._Default`
         WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 24 HOUR)
             AND json_payload IS NOT NULL
             AND SEARCH(labels, "frontend")

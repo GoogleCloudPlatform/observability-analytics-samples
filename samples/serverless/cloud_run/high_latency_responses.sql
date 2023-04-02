@@ -21,7 +21,7 @@
 -- Cloud Run service latency was more than 2 seconds.
 
 SELECT *
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "cloud_run_revision"
     AND http_request.latency.nanos / 1000000000 > 2
     AND timestamp BETWEEN '2022-06-13T15:45:04' AND '2022-06-14T15:46:04'

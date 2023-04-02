@@ -23,7 +23,7 @@ SELECT JSON_VALUE(resource.labels.cluster_name) as cluster,
     JSON_VALUE(resource.labels.pod_name) as pod_name,
     JSON_VALUE(resource.labels.container_name) as container,
     count(*) as container_cnt
-FROM `logs_day2ops_log_US_1._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY)
     AND resource.type = "k8s_container"
 GROUP BY 1,

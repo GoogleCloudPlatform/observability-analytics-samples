@@ -24,7 +24,7 @@ SELECT JSON_VALUE(json_payload.src_gke_details.pod.pod_name) AS src_pod,
     SUM(
         CAST(JSON_VALUE(json_payload.bytes_sent) AS INT64)
     ) AS total_bytes_sent
-FROM `[MY_DATASET_ID]._AllLogs`
+FROM `[MY_PROJECT].global._Default._Default`
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
     AND log_name LIKE "%compute.googleapis.com%2Fvpc_flows%"
     AND JSON_VALUE(json_payload.reporter) = "SRC"
