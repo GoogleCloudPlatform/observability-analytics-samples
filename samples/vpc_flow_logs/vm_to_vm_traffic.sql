@@ -24,7 +24,7 @@ SELECT
 FROM
 `[MY_PROJECT].global._Default._Default`
 WHERE
-log_name LIKE "%compute.googleapis.com%2Fvpc_flows%"
+log_id = "compute.googleapis.com/vpc_flows"
 AND timestamp(replace(substr(JSON_VALUE(json_payload.start_time),0,19),"T"," ")) > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
 GROUP BY 1,2,3,4,5,6
 ORDER BY 7 DESC
