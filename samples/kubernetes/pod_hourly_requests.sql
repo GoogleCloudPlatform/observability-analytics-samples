@@ -29,7 +29,7 @@ FROM `[MY_PROJECT].global._Default._Default`
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
     AND json_payload IS NOT NULL
     AND json_payload.message IS NOT NULL
-    AND JSON_VALUE(json_payload.message) = "request complete"
-    AND JSON_VALUE(resource.labels.pod_name) LIKE "frontend%"
+    AND SEARCH(json_payload.message, "`request complete`")
+    AND SEARCH(resource.labels.pod_name, "`frontend`")
 ORDER BY timestamp ASC
 LIMIT 50

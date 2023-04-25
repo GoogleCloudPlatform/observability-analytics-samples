@@ -34,7 +34,7 @@ SELECT JSON_VALUE(
 FROM `[MY_PROJECT].global._Default._Default`
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
     AND resource.type = "gce_subnetwork"
-    AND log_name LIKE "%compute.googleapis.com%2Fvpc_flows%"
+    AND log_id = "compute.googleapis.com/vpc_flows"
     AND JSON_VALUE(
         json_Payload.src_gke_details.cluster.cluster_name
     ) IS NOT NULL

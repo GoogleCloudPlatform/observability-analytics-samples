@@ -26,8 +26,8 @@ SELECT JSON_VALUE(json_payload.src_gke_details.pod.pod_name) AS src_pod,
     ) AS total_bytes_sent
 FROM `[MY_PROJECT].global._Default._Default`
 WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
-    AND log_name LIKE "%compute.googleapis.com%2Fvpc_flows%"
-    AND JSON_VALUE(json_payload.reporter) = "SRC"
+    AND log_id = "compute.googleapis.com/vpc_flows"
+    AND SEARCH(json_payload.reporter, "SRC")
     AND JSON_VALUE(json_payload.src_gke_details.pod.pod_name) IS NOT NULL
     AND JSON_VALUE(json_payload.dest_gke_details.pod.pod_name) IS NOT NULL
 GROUP BY 1,

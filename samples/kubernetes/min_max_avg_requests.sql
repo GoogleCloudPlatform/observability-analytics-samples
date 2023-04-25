@@ -32,7 +32,7 @@ FROM (
         WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 24 HOUR)
             AND json_payload IS NOT NULL
             AND SEARCH(labels, "frontend")
-            AND JSON_VALUE(json_payload.message) = "request complete"
+            AND SEARCH(json_payload.message,"`request complete`")
         ORDER BY took_ms DESC,
             timestamp ASC
     )
