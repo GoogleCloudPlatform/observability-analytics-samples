@@ -21,7 +21,7 @@ SELECT
  ROUND(SUM(CAST(JSON_VALUE(json_payload.bytes_sent) as INT64))/(1024^3)) as total_gibbytes_sent,
  SUM(CAST(JSON_VALUE(json_payload.packets_sent) as INT64)) as total_packets_sent
 FROM
-`cloud-logs-test-project.global._Default._Default`
+`[MY_PROJECT].global._Default._Default`
 WHERE
  log_id = "compute.googleapis.com/vpc_flows"
  AND (JSON_VALUE(json_payload.src_vpc.vpc_name) is null or JSON_VALUE(json_payload.dest_vpc.vpc_name) is null)
