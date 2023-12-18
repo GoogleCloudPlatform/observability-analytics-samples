@@ -54,7 +54,7 @@ WITH
    cluster_name,
    SUM(cost) AS cost,
  FROM
-   `[project_id].[dataset].clean_billing_view`
+   `[project_id].[dataset].gke_billing_view`
  GROUP BY 1,2,3)
 SELECT
  t,
