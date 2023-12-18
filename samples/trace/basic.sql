@@ -1,0 +1,3 @@
+SELECT *
+FROM YOUR_PROJECT_NAME.global._Trace._AllSpans
+LIMIT 10
