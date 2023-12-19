@@ -3,7 +3,7 @@
 Go to the BigQuery page in the Google Cloud console and 
 verify the data is visible in the *_AllMetrics* table and the detailed export billing  table. For the following steps, we will use GKE as an example and show you how to associate the billing data with the metric data.
 
-First, create a `gke_metric_billing` dataset in your project and ensure the region matches the billing export dataset region. Then, run some queries In the query editor to create a few views as our data sources.
+First, create a `gke_metric_billing` dataset in your project and ensure the region matches the billing export dataset region. Then, run some queries In the query editor to create a few views as the data sources.
 
 1) Use the query in [gke_billing_view.sql](./gke_billing_view.sql) to create a clean GKE billing view. Please replace the `project id` and `dataset` accordingly.
 
