@@ -58,7 +58,6 @@ SELECT DATE_TRUNC(
     ) AS packets,
     JSON_VALUE(json_payload.src_instance.project_id) AS src_project_id
 FROM `[MY_PROJECT].global._Default._Default`
-WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY)
 GROUP BY time_period,
     protocol,
     src_project_id
