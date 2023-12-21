@@ -24,7 +24,6 @@ SELECT
 FROM
  `[MY_PROJECT].global._Default._Default`
 WHERE
- timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 8 HOUR)
- AND resource.type="k8s_container"
+ resource.type="k8s_container"
 GROUP BY 1
 ORDER BY 1 ASC
