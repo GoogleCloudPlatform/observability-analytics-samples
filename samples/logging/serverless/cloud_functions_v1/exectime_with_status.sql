@@ -22,8 +22,7 @@ WITH Recs AS (
         timestamp as exec_time,
         SPLIT(text_payload, ' ') AS str_array
     FROM `[MY_PROJECT].global._Default._Default`
-    WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY)
-        AND log_name like '%cloud_functions'
+    WHERE log_name like '%cloud_functions'
         AND text_payload like '%took%'
     ORDER BY timestamp DESC
     LIMIT 10
