@@ -22,8 +22,7 @@ SELECT JSON_VALUE(resource.labels.cluster_name) as cluster,
     JSON_VALUE(resource.labels.namespace_name) as namespace,
     count(*) as container_cnt
 FROM `[MY_PROJECT].global._Default._Default`
-WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY)
-    AND resource.type = "k8s_container"
+WHERE resource.type = "k8s_container"
 GROUP BY 1,
     2,
     3
