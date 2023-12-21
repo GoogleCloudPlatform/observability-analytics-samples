@@ -21,8 +21,7 @@
 SELECT JSON_VALUE(resource.labels.service_name) as service,
     count(*) as service_cnt
 FROM `[MY_PROJECT].global._Default._Default`
-WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY)
-    AND resource.type = "cloud_run_revision"
+WHERE  resource.type = "cloud_run_revision"
     AND severity = "ERROR"
 GROUP BY 1
 ORDER BY 2 DESC

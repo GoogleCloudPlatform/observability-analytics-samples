@@ -32,8 +32,7 @@ SELECT JSON_VALUE(
         CAST(JSON_VALUE(json_Payload.bytes_sent) AS INT64)
     ) as bytes_sent
 FROM `[MY_PROJECT].global._Default._Default`
-WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
-    AND resource.type = "gce_subnetwork"
+WHERE   resource.type = "gce_subnetwork"
     AND log_id = "compute.googleapis.com/vpc_flows"
     AND JSON_VALUE(
         json_Payload.src_gke_details.cluster.cluster_name

@@ -29,8 +29,7 @@ FROM (
                 JSON_VALUE(json_payload, '$."http.resp.took_ms"') AS INT64
             ) as took_ms
         FROM `[MY_PROJECT].global._Default._Default`
-        WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 24 HOUR)
-            AND json_payload IS NOT NULL
+        WHERE json_payload IS NOT NULL
             AND SEARCH(labels, "frontend")
             AND SEARCH(json_payload.message,"`request complete`")
         ORDER BY took_ms DESC,

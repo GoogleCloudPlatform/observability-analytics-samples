@@ -24,8 +24,7 @@ SELECT timestamp,
   resource,
   labels
 FROM `[MY_PROJECT].global._Default._AllLogs`
-WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
-  AND proto_payload IS NOT NULL
+WHERE proto_payload IS NOT NULL
   AND log_name LIKE "%cloudaudit.googleapis.com%"
 ORDER BY timestamp ASC
 LIMIT 50;
@@ -38,8 +37,7 @@ SELECT proto_payload.audit_log.authentication_info.principal_email,
   proto_payload.audit_log.request_metadata.caller_ip,
   count(*) as cnt
 FROM `[MY_PROJECT].global._Default._AllLogs`
-WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
-  AND proto_payload IS NOT NULL
+WHERE proto_payload IS NOT NULL
   AND log_name LIKE "%cloudaudit.googleapis.com%"
   AND proto_payload.audit_log.authentication_info.principal_email = "xxxxxxx@developer.gserviceaccount.com"
 GROUP BY 1,
@@ -58,8 +56,7 @@ SELECT timestamp,
   resource,
   labels
 FROM `[MY_PROJECT].global._Default._AllLogs` as t
-WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
-  AND proto_payload IS NOT NULL
+WHERE proto_payload IS NOT NULL
   AND log_name LIKE "%cloudaudit.googleapis.com%"
   AND SEARCH(t, "34.122.94.173")
 ORDER BY timestamp ASC
@@ -101,8 +98,7 @@ SELECT timestamp,
   proto_payload.audit_log.resource_name,
   proto_payload.audit_log.request_metadata.caller_ip,
   FROM `[MY_PROJECT].global._Default._AllLogs`
-WHERE timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 60 DAY)
-  AND proto_payload.audit_log.request_metadata.caller_ip IS NOT NULL
+WHERE  proto_payload.audit_log.request_metadata.caller_ip IS NOT NULL
 ORDER BY timestamp DESC
 LIMIT 1000;
 

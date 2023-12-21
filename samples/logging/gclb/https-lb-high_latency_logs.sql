@@ -25,5 +25,4 @@ SELECT *
 FROM `[MY_PROJECT].global._Default._Default`
 WHERE resource.type = "http_load_balancer"
     AND http_request.latency.nanos / 1000000000 > 2
-    AND timestamp BETWEEN '2022-06-07T15:45:04' AND '2022-06-08T15:46:04'
 limit 10
