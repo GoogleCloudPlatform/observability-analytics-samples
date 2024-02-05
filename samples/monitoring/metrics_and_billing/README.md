@@ -21,7 +21,7 @@ First, create a `gke_metric_billing` dataset in your project and ensure the regi
 Looker Studio is a free, self-service business intelligence platform that lets you build and consume data visualizations, dashboards, and reports. With Looker Studio, you can connect to your data, create visualizations, and share your insights with others.
 Use Looker Studio to visualize data in the BigQuery:
 
-* Open the [Metric and pricing dashboard template](https://lookerstudio.google.com/reporting/e426208d-e31e-4910-ba30-c8425957568f/page/BLaAD/preview).
+* Open the [Metric and pricing dashboard template](https://lookerstudio.google.com/reporting/81a5158b-206c-46f7-abe6-8104d5f1da0c/page/BLaAD/preview).
 * Click Use __my own data__.
 * Select your project.
 * For Dataset, select `gke_metric_billing`.
