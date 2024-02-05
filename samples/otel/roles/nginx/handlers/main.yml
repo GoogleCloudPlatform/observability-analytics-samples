@@ -1,0 +1,10 @@
+---
+# Handler for the webtier: handlers are called by other plays.
+# See http://docs.ansible.com/playbooks_intro.html for more information about handlers.
+
+- name: Start nginx
+  ansible.builtin.systemd_service:
+    state: restarted
+    name: nginx.service 
+    enabled: true
+  become: true

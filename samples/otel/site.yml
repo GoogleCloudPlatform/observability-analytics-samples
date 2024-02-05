@@ -1,0 +1,23 @@
+---
+# This playbook deploys the whole gateway stack in this site.
+
+- name: install and configure the backend collectors
+  hosts: backend_collectors
+  remote_user: admin
+
+  roles:
+    - collector
+
+- name: configure and deploy the load baalanced
+  hosts: nginx
+  remote_user: admin
+
+  roles:
+    - nginx
+
+- name: deploy the collectors as agents
+  hosts: app_servers
+  remote_user: admin
+
+  roles:
+    - agent

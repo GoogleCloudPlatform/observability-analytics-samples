@@ -1,0 +1,27 @@
+---
+# This playbook contains common plays that will be run on the collector nodes.
+
+- name: APT | Update cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+  become: true
+  changed_when: false
+
+- name: Install the collector
+  ansible.builtin.apt:
+    deb: https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.93.0/otelcol-contrib_0.93.0_linux_amd64.deb
+  become: true
+  tags: agent
+
+- name: Create the collector agent config file
+  template:
+    src: otel-agent.conf.j2
+    dest: /etc/otelcol-contrib/config.yaml
+    owner: otelcol-contrib 
+    group: otelcol-contrib 
+    mode: '0644'
+    backup: yes
+  become: true
+  tags: agent
+  notify: Start the agent

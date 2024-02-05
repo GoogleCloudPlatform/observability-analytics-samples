@@ -1,0 +1,9 @@
+---
+# Handler to handle common notifications. Handlers are called by other plays.
+# See http://docs.ansible.com/playbooks_intro.html for more information about handlers.
+
+- name: Start the collector
+  ansible.builtin.systemd_service:
+    state: restarted
+    name: otelcol-contrib.service
+    enabled: true

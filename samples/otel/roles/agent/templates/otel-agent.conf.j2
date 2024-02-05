@@ -1,0 +1,70 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+  hostmetrics:
+    collection_interval: 30s
+    scrapers:
+      cpu:
+      memory:
+        metrics:
+          system.linux.memory.available:
+            enabled: true
+          system.memory.utilization:
+            enabled: true
+      load:
+exporters:
+    otlp:
+      endpoint: {{ groups['nginx'][0] }}:4317
+      tls:
+        insecure: true
+processors:
+  resource:
+    attributes:
+    - key: "project_id"
+      value: "Your-Project-Id"
+      action: upsert
+    - key: "location"
+      value: "us-central1-a"
+      action: upsert
+    - key: "cluster"
+      value: "onprem"
+      action: upsert
+    - key: "namespace"
+      value: ""
+      action: upsert
+    - key: "job"
+      value: "metric_job"
+      action: upsert
+    - key: "instance"
+      value: "test"
+      action: upsert
+  transform:
+    error_mode: ignore
+    log_statements:
+    - context: log
+      statements:
+      - set(attributes["gcp.log_name"], resource.attributes["service.name"]) where attributes["gcp.log_name"] == nil  
+  memory_limiter:
+    check_interval: 1s
+    limit_percentage: 65
+    spike_limit_percentage: 20
+  batch:
+  resourcedetection:
+    detectors: [env, system]
+    timeout: 10s
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [otlp]
+    metrics:
+      receivers: [hostmetrics, otlp]
+      processors: [memory_limiter, batch, resourcedetection, resource]
+      exporters: [otlp]
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, transform, batch]
+      exporters: [otlp]

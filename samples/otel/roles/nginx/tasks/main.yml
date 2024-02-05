@@ -1,0 +1,23 @@
+---
+# These tasks install http and the php modules.
+
+- name: APT | Update cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+  changed_when: false
+  become: true
+
+- name: APT | Install nginx and dependencies
+  ansible.builtin.apt:
+    name: nginx
+  become: true
+  notify: Start nginx
+
+- name: Create nginx configuration file
+  template:
+    src: otel-collector.conf.j2
+    dest: /etc/nginx/conf.d/otel-collector.conf
+  become: true
+  notify:
+  - Start nginx

@@ -1,0 +1,25 @@
+---
+# This playbook contains common plays that will be run on the collector nodes.
+
+- name: APT | Update cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+  become: true
+  changed_when: false
+
+- name: Install the collector
+  ansible.builtin.apt:
+    deb: https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.93.0/otelcol-contrib_0.93.0_linux_amd64.deb
+  become: true
+  tags: collector
+
+- name: Configure collector file
+  template: src={{ item.src }} dest={{ item.dest }} group=otelcol-contrib owner=otelcol-contrib mode=0640 backup=yes
+  with_items:
+    - { src: 'otel.conf.j2', dest: '/etc/otelcol-contrib/config.yaml' }
+    - { src: 'otelcol-contrib.conf.j2', dest: '/etc/otelcol-contrib/otelcol-contrib.conf' }
+    - { src: 'otel-sa-key.json', dest: '/etc/otelcol-contrib/otel-sa-key.json' }
+  become: true
+  tags: collector
+  notify: Start the collector
