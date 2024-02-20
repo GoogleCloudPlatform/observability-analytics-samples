@@ -24,7 +24,6 @@ FROM
 `[MY_PROJECT].global._Default._Default`
 WHERE
 log_id = "compute.googleapis.com/vpc_flows"
-AND timestamp(replace(substr(JSON_VALUE(json_payload.start_time),0,19),"T"," ")) > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
 AND (JSON_VALUE(json_payload.src_vpc.vpc_name) is null or JSON_VALUE(json_payload.dest_vpc.vpc_name) is null)
 AND SEARCH(json_payload.reporter, "SRC")
 GROUP BY 1,2,3,4
@@ -40,7 +39,6 @@ FROM
 `[MY_PROJECT].global._Default._Default`
 WHERE
 log_id = "compute.googleapis.com/vpc_flows"
-AND timestamp(replace(substr(JSON_VALUE(json_payload.start_time),0,19),"T"," ")) > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
 AND (JSON_VALUE(json_payload.src_vpc.vpc_name) is null or JSON_VALUE(json_payload.dest_vpc.vpc_name) is null)
 AND SEARCH(json_payload.reporter, "DEST")
 GROUP BY 1,2,3,4
