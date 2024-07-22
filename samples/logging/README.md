@@ -24,12 +24,18 @@
 | 2.9| [Get the total bytes and packets to/from Kubernetes clusters](./kubernetes/network_bytes_between_clusters.sql)| VPC Flow Logs	|
 | 2.10| [Top destination IPs by total bytes and packets to/from Kubernetes clusters.](./kubernetes/network_top_ips_for_clusters.sql)| VPC Flow Logs	|
 | 2.11| [Get the total bytes and packets by protocol over the past day](./kubernetes/network_traffic_by_protocol.sql)| VPC Flow Logs	|
-| 2.12| [Get the count of logs by severity](./kubernetes/k8s_cnt_by_severity)| Kubernetes Logs	|
-| 2.13| [Get the count of logs by k8s service and severity](./kubernetes/k8s_count_by_service_by_severity)| Kubernetes Logs	|
+| 2.12| [Get the count of logs by severity](./kubernetes/k8s_cnt_by_severity.sql)| Kubernetes Logs	|
+| 2.13| [Get the count of logs by k8s service and severity](./kubernetes/k8s_count_by_service_by_severity.sql)| Kubernetes Logs	|
+| 2.14| [Logs from STDOUT across the TPU nodes](./kubernetes/k8s_tpu_nodes_stdout.sql)| Kubernetes Logs	|
+| 2.15| [Error logs across the TPU nodes](./kubernetes/k8s_tpu_nodes_error.sql)| Kubernetes Logs	|
+| 2.16| [Logs from STDOUT of the same K8s job](./kubernetes/k8s_tpu_jobs_stdout.sql)| Kubernetes Logs	|
+| 2.17| [Error logs for the same K8s job](./kubernetes/k8s_tpu_jobs_error.sql)| Kubernetes Logs	|
+| 2.18| [Logs from STDOUT of the same K8s JobSet](./kubernetes/k8s_tpu_jobset_stdout.sql)| Kubernetes Logs	|
+| 2.19| [Error logs for the same K8s JobSet](./kubernetes/k8s_tpu_jobset_error.sql)| Kubernetes Logs	|
 | <div id="cloud-provisioning-activity">3</div> | **Serverless**
 | 3.1| [Recent functions run time and status code](./serverless/cloud_functions_v1/exectime_with_status.sql)| Cloud Functions V1 logs|
 | 3.2| [Top Cloud Functions instances that used most of time in a specified date range](./serverless/cloud_functions_v1/high_latency_responses.sql)|Cloud Functions V1 logs|
-| 3.3| [Top instances that having error status in the last 24 hours](./serverless/cloud_functions_v1/status_code_not_200.sql)|Cloud Run logs| 
+| 3.3| [Top instances that having error st`atus in the last 24 hours](./serverless/cloud_functions_v1/status_code_not_200.sql)|Cloud Run logs| 
 | 3.4| [Average amount of data that is passing through the Cloud Run services](./serverless/cloud_run/avg_data_pass_through.sql)| Cloud Run logs|
 | 3.5| [Client IP addresses that accessed the Cloud Run service](./serverless/cloud_run/client_ip_access_times.sql)|Cloud Run logs|
 | 3.6| [List clients by the amount of data they received from the Cloud Run services](./serverless/cloud_run/client_receive_data.sql)| Cloud Run logs|
@@ -49,7 +55,12 @@
 | 4.5| [Top Talkers](./vpc_flow_logs/top_talkers.sql)|VPC Flow logs|
 | 4.6| [Total egress by zone](./vpc_flow_logs/total_egress_between_zones.sql)|VPC Flow logs|
 | 4.6| [VM to VM traffic](./vpc_flow_logs/vm_to_vm_traffic.sql)|VPC Flow logs|
-
+| <div id="cloud-provisioning-activity">5</div> | **BigQuery**
+| 5.1| [Dataset activities](./bigquery/dataset_activities.sql)|BigQuery logs|
+| 5.2| [Table activities](./bigquery/table_activities.sql)|BigQuery logs|
+| 5.3| [Expired tables](./bigquery/expired_tables.sql)|BigQuery logs|
+| 5.4| [Most popular datasets](./bigquery/most_popular_datasets.sql)|BigQuery logs|
+| 5.5| [Completed queries](./bigquery/queries_completed.sql)|BigQuery logs|
 
 ## Security analytics
 
