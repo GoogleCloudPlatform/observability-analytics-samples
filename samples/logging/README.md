@@ -55,6 +55,7 @@
 | 4.5| [Top Talkers](./vpc_flow_logs/top_talkers.sql)|VPC Flow logs|
 | 4.6| [Total egress by zone](./vpc_flow_logs/total_egress_between_zones.sql)|VPC Flow logs|
 | 4.6| [VM to VM traffic](./vpc_flow_logs/vm_to_vm_traffic.sql)|VPC Flow logs|
+| 4.7| [Firewall Traffic](./firewall/firewall_source_dest_traffic_by_ip.sql)|Firewall Logs|
 | <div id="cloud-provisioning-activity">5</div> | **BigQuery**
 | 5.1| [Dataset activities](./bigquery/dataset_activities.sql)|BigQuery logs|
 | 5.2| [Table activities](./bigquery/table_activities.sql)|BigQuery logs|
